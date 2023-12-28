@@ -3,12 +3,12 @@
 int fun()
 {
     static int num = 16;
-    return num--;
+    return num--;//15,14,13,12,11
 }
 
 int main()
 {
     for (fun(); fun(); fun())
-        printf("% d ", fun());
+        printf("% d ", fun());//14
     return 0;
 }//14 11 8 5 2

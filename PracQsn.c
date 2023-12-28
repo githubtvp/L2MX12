@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define pr(expr) printf(#expr " = %d\n", expr)
 #define prc(expr) printf("%c ", expr)
@@ -18,14 +19,34 @@ void main() // changeArr (int *a, int n)
     // pr(x / y * y);     // quotient * divisor
     // pr(x - x / y * y); // dividen - (quotient * divisor) = remainder
 
-    // char *name = "This is a test line of more than 10 char";
-    // prs(name);
-    // printf("\nFirst 11 char : %11.11s \n", name);
-  //  printf(x);
-    printf("%d");
-   // printf();
-    printf("\nNumber = %d");
-
+    char *name = "HAPPY BIRTHDAY TO YOU";
+    char *name1; //= "This is a test line of more than 10 char";
+    prs(name);
+    prn();
+    int len = strlen(name);
+    //     printf("\nFirst 11 char : %11.11s \n", name);
+    //  printf(x);
+    // printf();
+    printf("\nNumber = %d\n", len);
+    name1 = (char *)malloc(len * sizeof(char));
+    int k = 3; int i;
+    for (i = 0; i < len; i++)
+    {
+        if (isalpha(name[i]))
+        {
+            name1[i] = (toupper(name[i]) + k);
+            if (name1[i] > 'Z') {
+                // Wrap around for 'x', 'y', 'z'
+                name1[i] = (name1[i] - 'Z' - 1) + 'A';               
+            }
+        }
+        else
+        {
+            name1[i] = name[i];
+        }
+    }
+    name1[i] = '\0';
+    prs(name1);
     // qsn1();
     // prn();
     // qsn2();

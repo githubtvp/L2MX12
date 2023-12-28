@@ -2,20 +2,20 @@
 #include <time.h>
 #include <stdio.h>
 
-int fun()
-{
-    static int cnt = 0;
-    static int num = 16;
-    cnt++;    
-    printf("\ncnt : %d,  Num : %d\n", cnt, num); 
-    return num--;
-}
-int main()
-{
-    for ( fun();  fun(); fun())
-        printf("%d ", fun());
-    return 0;
-}
+// int fun()
+// {
+//     static int cnt = 0;
+//     static int num = 16;
+//     cnt++;    
+//     printf("\ncnt : %d,  Num : %d\n", cnt, num); 
+//     return num--;
+// }
+// int main()
+// {
+//     for ( fun();  fun(); fun())
+//         printf("%d ", fun());
+//     return 0;
+// }
 
 /*
 # define max(x,y) (x>y) ? x : y
@@ -61,33 +61,33 @@ int main()
 }
 */
 
-/*
+
 int funcf(int x);
 int funcg(int y);
-main()
+int main()
 {
-    int x = 5, y = 10, count;
-    for (count = 1; count <= 2; ++count)
+    int x = 0, y = 1, count;
+    for (count = 1; count <= 5; ++count)
     {
-        y += funcf(x) + funcg(x);
-        printf("%d ", y);
+        y += funcf(x++) + funcg(x++);
+        printf("%d ", y++);
     }
 }
 
-funcf(int x)
+int funcf(int x)
 {
-    int y;
-    y = funcg(x);
-    return (y);
+    static int y;
+    y = funcg(x++);
+    return (y++);
 }
 
-funcg(int x)
+int funcg(int x)
 {
-    static int y = 10;
+    static int y = 1;
     y += 1;
-    return (y + x);
+    return (y++ + x++);
 }
-*/
+
 /*
 main()
 {//no output as such but process returns value 2 + 10
