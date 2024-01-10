@@ -9,7 +9,7 @@ int main()
     int n, range;
     range = MAXUPPER - MAXLOWER;
     srand(time(0));
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 5; i++)//50 random numbers
     {
         n = MAXLOWER + rand() % range;
         printf("%d\t", n);
